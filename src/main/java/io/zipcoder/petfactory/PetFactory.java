@@ -7,5 +7,4 @@ package io.zipcoder.petfactory;
  * date: 2/27/18
  */
 public interface PetFactory {
-    makePet();
 }

@@ -5,7 +5,6 @@ import io.zipcoder.pets.Dog;
 import io.zipcoder.pets.KomodoDragon;
 import io.zipcoder.pets.Pet;
 
-import java.util.List;
 import java.util.function.Supplier;
 
 /**
@@ -19,17 +18,21 @@ public enum PetType {
     DOG(Dog::new),
     KOMODODRAGON(KomodoDragon::new);
 
-    List<Supplier<Pet>> values;
+    Supplier<Pet> value;
 
     PetType(Supplier<Pet> petSupplier) {
-        values
+        this.value = petSupplier;
     }
 
-    public Pet getPetInstance(String petTypeName) {
-        for (Supplier<Pet> s : this.)
+    public static Pet getPetInstance(String petTypeName) {
+        for (PetType p : PetType.values()) {
+            if (petTypeName.equalsIgnoreCase(p.toString()))
+                return getValue(p).get();
+        }
+        return null;
     }
 
-    private Pet<Supplier> getValue(PetType p) {
-
+    public static Supplier<Pet> getValue(PetType p) {
+        return p.value;
     }
 }

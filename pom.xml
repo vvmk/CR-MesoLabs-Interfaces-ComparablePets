@@ -15,9 +15,6 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId></groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
+
     </dependencies>
 </project>
