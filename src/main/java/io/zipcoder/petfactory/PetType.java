@@ -1,31 +1,35 @@
 package io.zipcoder.petfactory;
 
+import io.zipcoder.pets.Cat;
+import io.zipcoder.pets.Dog;
+import io.zipcoder.pets.KomodoDragon;
+import io.zipcoder.pets.Pet;
+
+import java.util.List;
+import java.util.function.Supplier;
+
 /**
  * filename:
  * project: Interfaces
  * author: https://github.com/vvmk
- * date: 2/26/18
+ * date: 2/27/18
  */
 public enum PetType {
-    DOG("dog"),
-    CAT("cat"),
-    KOMODODRAGON("komodo dragon");
+    CAT(Cat::new),
+    DOG(Dog::new),
+    KOMODODRAGON(KomodoDragon::new);
 
-    String text;
+    List<Supplier<Pet>> values;
 
-    PetType(String text) {
-        this.text = text;
+    PetType(Supplier<Pet> petSupplier) {
+        values
     }
 
-    public String getText() {
-        return text;
+    public Pet getPetInstance(String petTypeName) {
+        for (Supplier<Pet> s : this.)
     }
 
-    public static PetType valFromString(String text) {
-        for (PetType p : PetType.values()) {
-            if (p.text.equalsIgnoreCase(text))
-                return p;
-        }
-        return null;
+    private Pet<Supplier> getValue(PetType p) {
+
     }
 }
